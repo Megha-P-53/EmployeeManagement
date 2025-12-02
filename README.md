@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+Employee Management System 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A complete Employee Management System built using:
 
-## Available Scripts
+- Spring Boot (Backend)
+- React JS (Frontend)
+- MySQL Database
 
-In the project directory, you can run:
+This project supports:
 
-### `npm start`
+- Add Employee
+- Edit Employee
+- Delete Employee
+- List with Pagination
+- Search Employee
+- Filter by Department
+- Dashboard with Department-Wise Counts
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ Technologies Used
+Frontend:-
+React JS
+Axios
+Bootstrap
+React Router
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Backend :-
+Spring Boot
+Spring Data JPA
+MySQL
+Hibernate
 
-### `npm test`
+How to Run the Backend (Spring Boot) - 
+1️ Open MySQL and create database
+CREATE DATABASE employee_db;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2️ Update database details in application.properties
+spring.datasource.url=jdbc:mysql://localhost:3306/employee_db
+spring.datasource.username=root
+spring.datasource.password=YOUR_PASSWORD
 
-### `npm run build`
+3️ Run Backend
+In IDE (STS/IntelliJ/Eclipse):
+Right-click → Run EmployeeappApplication.java
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Backend runs on:
+http://localhost:8080
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+API Base URL:
+http://localhost:8080/api/employees
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+How to Run the Frontend (React) -
+1️ Install dependencies
+npm install
 
-### `npm run eject`
+2️ Start React App
+npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Runs on:
+http://localhost:3000
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+API Endpoints :
+Method	          Endpoint	                         Description
+GET	           /api/employees	                 Get paginated employees
+GET	       /api/employees/search?keyword=abc	  Search employees
+GET     	/api/employees/filter?department=HR	   Filter by department
+GET  	     /api/employees/dashboard	            Dashboard counts
+POST	        /api/employees	                     Add employee
+PUT	          /api/employees/{id}	                 Update employee
+DELETE	       /api/employees/{id}                   Delete employee
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Screenshots:
 
-## Learn More
+ 1. Add Employee
+Shows the form where HR can add a new employee by entering name, email, phone number, department, and salary.  
+![Add Employee](./src/screenshots/AddEmployee.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ 2. Dashboard
+Displays employee statistics such as total employees and count by each department.  
+![Dashboard](./src/screenshots/Dashboard.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ 3. Delete Employee
+Shows the confirmation popup before deleting an employee.  
+![Delete Employee](./src/screenshots/DeleteEmployee.png)
 
-### Code Splitting
+ 4. Edit Employee
+Displays a pre-filled edit form allowing HR to update employee details.  
+![Edit Employee](./src/screenshots/EditEmployee.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+ 5. Employee List (Page 1)
+Shows paginated employee list with options to edit and delete.  
+![Employee List Page 1](./src/screenshots/Employeelist1.png)
 
-### Analyzing the Bundle Size
+ 6. Employee List (Page 2)
+Shows the next set of employees using pagination.  
+![Employee List Page 2](./src/screenshots/Employeelist2.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+ 7. Filter by Department
+Displays employees based on selected department like HR, Testing, Sales, etc.  
+![Filter by Department](./src/screenshots/FilterByDept.png)
 
-### Making a Progressive Web App
+ 8. No Records Found
+Displayed when search or filter returns no matching employees.  
+![No Records Found](./src/screenshots/NoRecords.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+ 9. Search by Email
+Shows search result when filtering by employee email.  
+![Search by Email](./src/screenshots/SearchByMail.png)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 10. Search by Name
+Displays results when searching employees by their name.  
+![Search by Name](./src/screenshots/SearchByName.png)
