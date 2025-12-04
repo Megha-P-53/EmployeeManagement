@@ -1,31 +1,36 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/employees";
+const BASE_URL = "http://localhost:8080/api";
 
 class EmployeeService {
 
   getEmployees(page = 0, size = 5) {
-    return axios.get(`${API_URL}?page=${page}&size=${size}`);
+    return axios.get(`${BASE_URL}/employees?page=${page}&size=${size}`);
   }
 
   searchEmployees(keyword, page = 0, size = 5) {
-    return axios.get(`${API_URL}/search?keyword=${keyword}&page=${page}&size=${size}`);
+    return axios.get(`${BASE_URL}/employees/search?keyword=${keyword}&page=${page}&size=${size}`);
   }
- 
+
   filterByDepartment(department, page = 0, size = 5) {
-    return axios.get(`${API_URL}/filter?department=${department}&page=${page}&size=${size}`);
-}
+    return axios.get(`${BASE_URL}/employees/filter?department=${department}&page=${page}&size=${size}`);
+  }
 
   addEmployee(employee) {
-    return axios.post(API_URL, employee);
+    return axios.post(`${BASE_URL}/employees`, employee);
   }
 
   updateEmployee(id, employee) {
-    return axios.put(`${API_URL}/${id}`, employee);
+    return axios.put(`${BASE_URL}/employees/${id}`, employee);
   }
 
   deleteEmployee(id) {
-    return axios.delete(`${API_URL}/${id}`);
+    return axios.delete(`${BASE_URL}/employees/${id}`);
+  }
+
+  
+  getDashboard() {
+    return axios.get(`${BASE_URL}/dashboard`);
   }
 }
 
